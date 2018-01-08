@@ -11,7 +11,7 @@ class Restaurant extends Model
 
     protected function getPhotoFullUrlAttribute()
    	{
-   		if ($this->attributes['photo']) {
+   		if (!empty($this->attributes['photo'])) {
    			return 'https://s3.'.env('AWS_REGION').'.amazonaws.com/'.env('AWS_BUCKET').'/restaurante/'.$this->attributes['photo'];
    		} else {
    			return null;
